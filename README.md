@@ -27,3 +27,6 @@ npm run dev
 ```sh
 npm run build
 ```
+
+
+Le tuto est ici : https://grafikart.fr/tutoriels/install-vuejs-2225#autoplay
