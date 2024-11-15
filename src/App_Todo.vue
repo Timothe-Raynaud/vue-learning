@@ -23,9 +23,9 @@
     <div v-else>
         <ul>
             <li
-                v-for="task in sortedTodos"
-                :key="task.date"
-                :class="{completed: task.completed}"
+                    v-for="task in sortedTodos()"
+                    :key="task.date"
+                    :class="{completed: task.completed}"
             >
                 <label>
                     {{ task.title }}
@@ -45,7 +45,7 @@
 </template>
 
 <script setup>
-import {computed, ref} from 'vue'
+import {ref} from 'vue'
 
 const create = ref(false)
 const hideCompleted = ref(false)
@@ -76,13 +76,13 @@ const addTask = () => {
     create.value = false
 }
 
-const sortedTodos = computed(() => {
+const sortedTodos = () => {
     const sorted = todos.value.sort((a, b) => a.completed > b.completed ? 1 : -1)
     if (hideCompleted.value === true){
         return sorted.filter(t => t.completed === false)
     }
     return sorted
-})
+}
 
 </script>
 
